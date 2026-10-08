@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_HUB_TOKEN }}
+      - run: docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_TOKEN }}
       - run: docker build -t ahmadsaid/docker-react -f Dockerfile.dev .
       # - run: docker run ahmadsaid/docker-react npm run test -- --coverage
       - run: docker run -e CI=true ahmadsaid/docker-react npm run test
